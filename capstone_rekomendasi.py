@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
-    df = pd.read_csv("budaya_jawa.csv")
+    df = pd.read_csv("bandung.csv")
     df.drop_duplicates(inplace=True)
 
     # Hitung skor popularitas
@@ -41,7 +41,7 @@ def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
 
 @app.route('/rekomendasi', methods=['GET'])
 def get_rekomendasi_wisata():
-    file_path = "budaya_jawa.csv"
+    file_path = "bandung.csv"
     kota_pilihan = None
     rekomendasi = rekomendasi_populer(file_path, top_n=500, kota_pilihan=kota_pilihan)
     return jsonify(rekomendasi.to_dict(orient='records'))
