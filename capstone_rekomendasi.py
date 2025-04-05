@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
-    df = pd.read_csv("bandung.csv")
+    df = pd.read_csv("budaya_jawa.csv")
     df.drop_duplicates(inplace=True)
 
     # Hitung skor popularitas
@@ -35,7 +35,7 @@ def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
     top_wisata = df_sorted.head(top_n)
 
     # Pilih kolom yang akan ditampilkan
-    rekomendasi = top_wisata[["Nama Tempat Wisata", "Kota", "Jenis Wisata", "Rating", "Deskripsi Singkat"]]
+    rekomendasi = top_wisata[["Budaya", "Kota", "Jenis", "Rating", "Deskripsi"]]
 
     return rekomendasi
 
