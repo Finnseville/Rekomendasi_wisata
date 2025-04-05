@@ -7,12 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1_7BGS23UY5ROUGyw_EnVp3VZSAS6eKW_
 """
 
-!pip install flask pandas
-!pip install Flask-CORS
-
 import pandas as pd
 from flask import Flask, jsonify, request
-from flask_ngrok import run_with_ngrok
 from flask_cors import CORS  # Impor Flask-CORS
 
 app = Flask(__name__)
@@ -49,7 +45,6 @@ def get_rekomendasi_wisata():
     kota_pilihan = None
     rekomendasi = rekomendasi_populer(file_path, top_n=500, kota_pilihan=kota_pilihan)
     return jsonify(rekomendasi.to_dict(orient='records'))
-
 
 if __name__ == "__main__":
    app.run()
