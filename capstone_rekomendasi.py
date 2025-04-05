@@ -35,7 +35,7 @@ def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
     top_wisata = df_sorted.head(top_n)
 
     # Pilih kolom yang akan ditampilkan
-    rekomendasi = top_wisata[["Budaya", "Kota", "Jenis", "Rating", "Deskripsi"]]
+    rekomendasi = top_wisata[["Nama Tempat Wisata", "Kota", "Jenis Wisata", "Rating", "Deskripsi Singkat"]]
 
     return rekomendasi
 
