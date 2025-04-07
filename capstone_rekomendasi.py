@@ -17,7 +17,7 @@ df = pd.read_csv("bandung.csv")
 df.drop_duplicates(inplace=True)
 
 
-def rekomendasi_populer(df, top_n=50, kota_pilihan=None):
+def rekomendasi_populer(df, top_n=100, kota_pilihan=None):
     # Hitung skor popularitas
     bobot_rating = 0.7
     df["skor_popularitas"] = df["Rating"] * bobot_rating
@@ -43,7 +43,7 @@ def rekomendasi_populer(df, top_n=50, kota_pilihan=None):
 def get_rekomendasi_wisata():
     file_path = "bandung.csv"
     kota_pilihan = None
-    rekomendasi = rekomendasi_populer(df, top_n=50, kota_pilihan=kota_pilihan)
+    rekomendasi = rekomendasi_populer(df, top_n=100, kota_pilihan=kota_pilihan)
     return jsonify(rekomendasi.to_dict(orient='records'))
 
 if __name__ == "__main__":
