@@ -43,7 +43,7 @@ def rekomendasi_populer(df, top_n=50, kota_pilihan=None):
 def get_rekomendasi_wisata():
     file_path = "bandung.csv"
     kota_pilihan = None
-    rekomendasi = rekomendasi_populer(file_path, top_n=500, kota_pilihan=kota_pilihan)
+    rekomendasi = rekomendasi_populer(df, top_n=50, kota_pilihan=kota_pilihan)
     return jsonify(rekomendasi.to_dict(orient='records'))
 
 if __name__ == "__main__":
