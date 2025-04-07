@@ -19,6 +19,7 @@ df.drop_duplicates(inplace=True)
 
 def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
     # Hitung skor popularitas
+    global df 
     bobot_rating = 0.7
     df["skor_popularitas"] = df["Rating"] * bobot_rating
 
