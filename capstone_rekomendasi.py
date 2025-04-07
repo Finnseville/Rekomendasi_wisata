@@ -17,7 +17,7 @@ df = pd.read_csv("bandung.csv")
 df.drop_duplicates(inplace=True)
 
 
-def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
+def rekomendasi_populer(df, top_n=50, kota_pilihan=None):
     # Hitung skor popularitas
     global df 
     bobot_rating = 0.7
