@@ -13,11 +13,11 @@ from flask_cors import CORS  # Impor Flask-CORS
 
 app = Flask(__name__)
 CORS(app)
+df = pd.read_csv("bandung.csv")
+df.drop_duplicates(inplace=True)
+
 
 def rekomendasi_populer(file_path, top_n=50, kota_pilihan=None):
-    df = pd.read_csv("bandung.csv")
-    df.drop_duplicates(inplace=True)
-
     # Hitung skor popularitas
     bobot_rating = 0.7
     df["skor_popularitas"] = df["Rating"] * bobot_rating
