@@ -14,6 +14,12 @@ from flask_cors import CORS  # Impor Flask-CORS
 app = Flask(__name__)
 CORS(app)
 df = pd.read_csv("bandung.csv")
+df["Nama Tempat Wisata"] = df["Nama Tempat Wisata"].str.strip().str.lower()
+df["Kota"] = df["Kota"].str.strip().str.lower()
+
+# Ambil yang rating-nya paling tinggi dari duplikat nama tempat dan kota
+df = df.sort_values("Rating", ascending=False)
+df = df.drop_duplicates(subset=["Nama Tempat Wisata", "Kota"], keep="first")
 df.drop_duplicates(inplace=True)
 
 
