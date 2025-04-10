@@ -13,7 +13,7 @@ from flask_cors import CORS  # Impor Flask-CORS
 
 app = Flask(__name__)
 CORS(app)
-df = pd.read_csv("bandung.csv")
+df = pd.read_csv("bandung_r.csv")
 df["Nama Tempat Wisata"] = df["Nama Tempat Wisata"].str.strip().str.lower()
 df["Kota"] = df["Kota"].str.strip().str.lower()
 
